@@ -2,37 +2,45 @@ var today = moment();
 $("#currentDay").text(today.format("MMM Do, YYYY"));
 
 var time = $("#time");
-var saveBtn = $("#saveBtn");
-var task = $('input[name ="plans"]');
+var saveBtn = $(".saveBtn");
+var task = $('input[name="plans"]');
+var container = $('#container')
+
+$(".saveBtn").on('click', savePlans);
 
 function savePlans(e) {
     e.preventDefault();
-    console.log('plans',task.val());
        
-        $('#plans').text(task);
-        localStorage.setItem(task,'plans');
+    var timeBlock = $('#time-nine').val();
+    console.log(timeBlock);
+
+
+    localStorage.setItem('plans',timeBlock);
+
+    localStorage.setItem( 'plans', JSON.stringify( timeBlock ) );
+
+    // console.log('plans', JSON.parse(retrievedPlans));
+
 }
 
+function getPlans(){
+    var retrievedPlans = localStorage.getItem('plans');
 
-saveBtn.on('click', savePlans);
+    if(retrievedPlans != null){
+        document.getElementById("plans").value = timeBlock; 
+    }
+}
 
-// 1 event.preventDefault();
-// $( ".inner" ).append( "<p>Test</p>" );
-
-// $('#example').append("this text was appended");
-
-// 
-
-
-//    // Display the letter
-//    letterBtn.text(letters[i]);
-//    // Attach the letter element
-//    buttonListEl.append(letterBtn);
+// for ( var i = 0; i < task.length; i++ ) {
+//     newsavedTasks.children().eq().text('plans');
+// }
+//     // localStorage.setItem( 'plans', JSON.stringify( timeBlock ) );
+// }
 
 
 
-var timeBefore = moment().isBefore();
-if (timeBefore = true)
-    $('#time1').addClass('past');
-    $('#plans').addClass('past');
+// var timeBefore = moment().isBefore();
+// if (timeBefore = true)
+//     $('#time1').addClass('past');
+//     $('#plans').addClass('past');
  
