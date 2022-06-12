@@ -14,28 +14,34 @@ function savePlans(e) {
     var timeBlock = $('#time-nine').val();
     console.log(timeBlock);
 
-
-    localStorage.setItem('plans',timeBlock);
-
     localStorage.setItem( 'plans', JSON.stringify( timeBlock ) );
+
+ $('#hour9').textcontent = localStorage.getItem("plans");
+
+
 
     // console.log('plans', JSON.parse(retrievedPlans));
 
 }
 
-function getPlans(){
-    var retrievedPlans = localStorage.getItem('plans');
+// function getPlans(){
+//     var retrievedPlans = localStorage.getItem('plans');
+//     var plansArray;
+//     if(retrievedPlans == null){
+//         scoresArray = [];
+//     } else {
+//         plansArray = JSON.parse(retrievedPlans)
+//     }
 
-    if(retrievedPlans != null){
-        document.getElementById("plans").value = timeBlock; 
-    }
-}
 
-// for ( var i = 0; i < task.length; i++ ) {
-//     newsavedTasks.children().eq().text('plans');
+//  for (i = 0; i < retrievedPlans.length; i++) {
+//         var eachplan = document.createElement("p"); 
+//         eachplan.innerHTML = retrievedPlans[i]
+//          savedHighscores.appendChild(eachNewHighScore); 
+//             }
+
 // }
-//     // localStorage.setItem( 'plans', JSON.stringify( timeBlock ) );
-// }
+
 
 
 
