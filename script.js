@@ -1,28 +1,29 @@
-var today = moment();
-$("#currentDay").text(today.format("MMM Do, YYYY"));
+// var today = moment();
+// $("#currentDay").text(today.format("MMM Do, YYYY"));
 
-var time = $("#time");
-var saveBtn = $(".saveBtn");
-var task = $('input[name="plans"]');
-var container = $('#container')
+// var time = $("#time");
+// var saveBtn = $(".saveBtn");
+// var task = $('input[name="plans"]');
+// var container = $('#container');
+// var hour9 =$('hour9');
 
-$(".saveBtn").on('click', savePlans);
+// $(document).ready(function() {
 
-function savePlans(e) {
-    e.preventDefault();
-       
-    var timeBlock = $('#time-nine').val();
-    console.log(timeBlock);
+// $(".saveBtn").on('click', function(){
+//     e.preventDefault();
+//     var timeBlock = $('#time-nine').val();
+//     console.log(timeBlock);
 
-    localStorage.setItem( 'plans', JSON.stringify( timeBlock ) );
+//     localStorage.setItem( 'plans', JSON.stringify( timeBlock ) );
 
- $('#hour9').textcontent = localStorage.getItem("plans");
+//     var savedPlans = JSON.parse(timeBlock);
+
+//     savedPlans = localStorage.getItem("plans");
+
+//      savedPlans.val(timeBlock);
 
 
-
-    // console.log('plans', JSON.parse(retrievedPlans));
-
-}
+    // console.log('plans', JSON.parse(retrievedPlans))
 
 // function getPlans(){
 //     var retrievedPlans = localStorage.getItem('plans');

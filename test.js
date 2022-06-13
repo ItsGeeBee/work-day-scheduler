@@ -1,18 +1,16 @@
-document.getElementById('currentDay').textContent = moment().format(
-    'dddd, MMMM Do, YYYY'
-  );
+var today = moment();
+$("#currentDay").text(today.format("MMM Do, YYYY"));
+savebtn = $(".saveBtn");
 
-  var time = document.getElementById('time');
+var plan = $(this).siblings(".tasks").val();
 
-  var saveBtn = document.getElementsByClassName('.saveBtn');
+saveBtn.on('click', function() {
+  var time = $(this).siblings(".tasks").text();
+  localStorage.setItem(time, plan);
+});
 
-  var nine = document.getElementById('time-nine');
+function pageRefresh() {
 
-saveBtn.addEventListener('click', timeNine);
-
-
-function timeNine() { 
-    var task = nine.value;
-    nine.innerHTML = task;
-} 
-
+  $(".tasks").each(function() {
+    return JSON.parse = localStorage.getItem(plan);
+  })};
