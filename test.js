@@ -1,11 +1,17 @@
+// Show current day at top of page using moment.js //
+
 var today = moment();
 $('#currentDay').text(today.format('MMM Do, YYYY'));
 
+
+// Declare variables //
 var savebtn = $('.saveBtn');
 
 var tasks = $('.tasks')
 
 var container = $('.container')
+
+// Click event - When the save button is clicked, save THIS task alongside parent ID //
 
 savebtn.on('click', function() {
 
@@ -15,25 +21,35 @@ savebtn.on('click', function() {
 
   console.log(time);
 
+// Save to local storage //  
+
   localStorage.setItem(time, JSON.stringify(savedTask));
 
 });
+
+// CSS class determined by time of day.
+
 function timeColour() {
  var hour = moment().hours();
 
   $('.time-block').each(function() {
 
-   var currentHour = $(this).attr('id');
+   var currentHour = parseInt($(this).attr('id'));
 
    if (currentHour > hour) {
-     $(this).addClass("future");
+     $(this).addClass('future');
 }   else if (currentHour === hour) {
-      $(this).addClass("present");
+      $(this).addClass('present');
 }   else {
-     $(this).addClass("past");
+     $(this).addClass('past');
 }
  })};
 
+
+
+
+
+// Retrieve from local storage on refresh //
 $('#time-nine').val(localStorage.getItem('9'));
 $('#time-ten').val(localStorage.getItem('10'));
 $('#time-eleven').val(localStorage.getItem('11'));
