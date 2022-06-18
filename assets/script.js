@@ -19,8 +19,6 @@ savebtn.on('click', function() {
 
   var time = $(this).parent().attr('id');
 
-  console.log(time);
-
 // Save to local storage //  
 
   localStorage.setItem(time, JSON.stringify(savedTask));
@@ -34,19 +32,18 @@ function timeColour() {
 
   $('.time-block').each(function() {
 
-   var currentHour = parseInt($(this).attr('id'));
+   var timeNow = parseInt($(this).attr('id')); // timeNow = timeblock ID
 
-   if (currentHour > hour) {
-     $(this).addClass('future');
-}   else if (currentHour === hour) {
-      $(this).addClass('present');
-}   else {
-     $(this).addClass('past');
+   if (timeNow > hour) {$(this).addClass('future'); // if the time now is greater than the Div id, add class future 
+}   
+
+else if (timeNow === hour) {$(this).addClass('present'); // if the timeNow equal the current hour, add class present 
+}   
+
+else {$(this).addClass('past'); // if does not fit into the first 2 rules, add class past
 }
+
  })};
-
-
-
 
 
 // Retrieve from local storage on refresh //
@@ -61,4 +58,7 @@ $('#time-sixteen').val(localStorage.getItem('16'));
 $('#time-seventeen').val(localStorage.getItem('17'));
 
 
-
+// When page loads, execute timeColour function to get class dependant on time 
+$( document ).ready(function() {
+  timeColour();
+});
