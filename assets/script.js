@@ -1,7 +1,7 @@
 // Show current day at top of page using moment.js //
 
 var today = moment();
-$('#currentDay').text(today.format('MMM Do, YYYY'));
+$('#currentDay').text(today.format('dddd, MMMM Do YYYY'));
 
 
 // Declare variables //
@@ -11,7 +11,7 @@ var tasks = $('.tasks')
 
 var container = $('.container')
 
-// Click event - When the save button is clicked, save THIS task alongside parent ID //
+// Click event - When a save button is clicked, save THIS task alongside parent ID //
 
 savebtn.on('click', function() {
 
@@ -27,10 +27,10 @@ savebtn.on('click', function() {
 
 // CSS class determined by time of day.
 
-function timeColour() {
- var hour = moment().hours();
+function blockColour() {
+ var hour = moment().hours(); // current time using moment.js
 
-  $('.time-block').each(function() {
+  $('.time-block').each(function() { 
 
    var timeNow = parseInt($(this).attr('id')); // timeNow = timeblock ID
 
@@ -58,7 +58,7 @@ $('#time-sixteen').val(localStorage.getItem('16'));
 $('#time-seventeen').val(localStorage.getItem('17'));
 
 
-// When page loads, execute timeColour function to get class dependant on time 
+// When page loads, execute blockColour function to get class dependant on time 
 $( document ).ready(function() {
-  timeColour();
+  blockColour();
 });
